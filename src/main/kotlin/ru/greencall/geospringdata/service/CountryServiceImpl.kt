@@ -12,4 +12,7 @@ class CountryServiceImpl(
     override fun getAllCountries(): List<Country> =
         countryDao.findAll().toList()
 
+    override fun getById(id: Int): Country =
+        countryDao.findById(id).orElseThrow()
+
 }
