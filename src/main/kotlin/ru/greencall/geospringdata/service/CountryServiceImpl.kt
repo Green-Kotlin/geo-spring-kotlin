@@ -1,15 +1,15 @@
 package ru.greencall.geospringdata.service
 
 import org.springframework.stereotype.Service
+import ru.greencall.geospringdata.dao.CountryDao
 import ru.greencall.geospringdata.model.Country
 
 @Service
-class CountryServiceImpl : CountryService {
+class CountryServiceImpl(
+    private val countryDao: CountryDao,
+) : CountryService {
 
     override fun getAllCountries(): List<Country> =
-        listOf(
-            Country(id =1, name = "Германия"),
-            Country(id =2, name = "Франция"),
-            Country(id =3, name = "Италия"),
-        )
+        countryDao.findAll().toList()
+
 }
