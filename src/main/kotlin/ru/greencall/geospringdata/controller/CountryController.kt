@@ -26,4 +26,9 @@ class CountryController(
     fun update(@PathVariable id: Int, @RequestBody dto: CountryDto) {
         countryService.update(id, dto)
     }
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Int) {
+        countryService.deleteById(id)
+    }
 }
