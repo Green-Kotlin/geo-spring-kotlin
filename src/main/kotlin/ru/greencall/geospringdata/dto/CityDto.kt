@@ -1,6 +1,5 @@
 package ru.greencall.geospringdata.dto
 
-data class CountryDto(
+data class CityDto(
     val name: String,
-    val cities: List<CityDto>,
 )

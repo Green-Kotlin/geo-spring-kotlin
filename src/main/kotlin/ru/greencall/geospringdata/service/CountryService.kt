@@ -5,9 +5,9 @@ import ru.greencall.geospringdata.model.Country
 
 interface CountryService {
 
-    fun getAllCountries(): List<Country>
+    fun getAllCountries(): List<CountryDto>
 
-    fun getById(id: Int): Country
+    fun getById(id: Int): CountryDto
 
     fun create(country: CountryDto)
 

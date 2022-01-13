@@ -12,10 +12,10 @@ class CountryController(
 ) {
 
     @GetMapping
-    fun getAllCountries(): List<Country> = countryService.getAllCountries()
+    fun getAllCountries(): List<CountryDto> = countryService.getAllCountries()
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: Int): Country = countryService.getById(id)
+    fun getById(@PathVariable id: Int): CountryDto = countryService.getById(id)
 
     @PostMapping
     fun create(@RequestBody dto: CountryDto) {
