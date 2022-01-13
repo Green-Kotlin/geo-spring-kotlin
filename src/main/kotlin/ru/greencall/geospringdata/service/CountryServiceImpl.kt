@@ -1,8 +1,10 @@
 package ru.greencall.geospringdata.service
 
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import ru.greencall.geospringdata.dao.CountryDao
 import ru.greencall.geospringdata.dto.CountryDto
+import ru.greencall.geospringdata.exception.CountryNotFoundException
 import ru.greencall.geospringdata.model.Country
 
 @Service
@@ -14,7 +16,8 @@ class CountryServiceImpl(
         countryDao.findAll().toList()
 
     override fun getById(id: Int): Country =
-        countryDao.findById(id).orElseThrow()
+        countryDao.findByIdOrNull(id)
+            ?: throw CountryNotFoundException(id)
 
     override fun create(country: CountryDto) {
         val country = Country(
