@@ -25,10 +25,10 @@ class CountryServiceImpl(
             ?: throw CountryNotFoundException(id)
 
     override fun create(country: CountryDto) {
-        val country = Country(
+        val newCountry = Country(
             name = country.name,
         )
-        countryDao.save(country)
+        countryDao.save(newCountry)
     }
 
     override fun update(id: Int, country: CountryDto) {
